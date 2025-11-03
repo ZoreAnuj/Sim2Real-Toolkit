@@ -196,18 +196,6 @@ Generate template: `python -m sim2real_toolkit generate-config config.yaml`
 - [ ] **Metrics**: FVD, LPIPS for augmentation quality assessment
 - [ ] **Multi-chunk**: Support sessions with multiple chunks
 
-## 📄 License
-
-MIT License (adjust as needed)
-
-## 🤝 Contributing
-
-This is a research toolkit. Feel free to:
-- Add new augmentation operations
-- Improve GUI responsiveness
-- Add metrics and analysis tools
-- Integrate domain translation models (CUT placeholder ready)
-
 ## 📚 Documentation
 
 - Full API docs: `sim2real_toolkit/README.md`
