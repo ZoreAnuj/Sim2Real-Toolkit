@@ -1,0 +1,61 @@
+data:
+  sim_root: ./frames/sim
+  real_root: ./frames/real
+  image_size: 256
+  random_crop: false
+  jitter: false
+  horizontal_flip: false
+  batch_size: 16
+  num_workers: 8
+
+optim:
+  epochs: 300
+  lr: 0.0002
+  betas: [0.5, 0.999]
+  lr_disc: 0.0002
+  betas_disc: [0.5, 0.999]
+
+model:
+  gen_channels: 64
+  n_res_blocks: 9
+  disc_n_layers: 3
+  spectral_norm: true
+  up_mode: bilinear
+  nce_layers: [1,2,3,4]
+  nce_dim: 256
+  nce_patches: 128
+
+loss:
+  adv_type: hinge
+  nce_tau: 0.07
+  lambda_idt: 25.0
+  lambda_luma: 8.0
+  lambda_tv: 1.0e-5
+  lambda_sat: 0.5
+  sat_target: 0.5
+  lambda_nce_idt: 1.0
+  r1_gamma: 10.0
+  patch_color:
+    enabled: true
+    patch_size: 16
+    stride: 16
+    sat_weight: 0.5
+    sat_max_weight: 1.5
+    sat_target: 0.55
+    chroma_weight: 1.5
+    luma_weight: 0.0
+  highlight:
+    enabled: true
+    weight: 0.4
+    threshold: 0.98
+  temporal:
+    enabled: true
+    lambda_temp: 3.0
+    delta: 1
+    use_flow: false
+
+logging:
+  out_dir: ./runs/cut
+  log_interval: 100
+  save_interval_epochs: 2
+
